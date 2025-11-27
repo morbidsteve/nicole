@@ -1,4 +1,9 @@
 // ==========================================
+// PURELY PLANNED CONSULTING
+// Main JavaScript File
+// ==========================================
+
+// ==========================================
 // NAVIGATION & MOBILE MENU
 // ==========================================
 
@@ -8,17 +13,32 @@ const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
 
 // Mobile menu toggle
-mobileMenuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    mobileMenuToggle.classList.toggle('active');
-});
+if (mobileMenuToggle) {
+    mobileMenuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        mobileMenuToggle.classList.toggle('active');
+    });
+}
 
 // Close mobile menu when clicking a link
 navLinks.forEach(link => {
-    link.addEventListener('click', () => {
+    link.addEventListener('click', (e) => {
+        // Only close menu for same-page navigation
+        if (link.getAttribute('href').startsWith('#')) {
+            navMenu.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+        }
+    });
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (navMenu.classList.contains('active') &&
+        !navMenu.contains(e.target) &&
+        !mobileMenuToggle.contains(e.target)) {
         navMenu.classList.remove('active');
         mobileMenuToggle.classList.remove('active');
-    });
+    }
 });
 
 // Navbar scroll effect
@@ -27,9 +47,9 @@ window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
 
     if (currentScroll <= 0) {
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        navbar.style.boxShadow = '0 1px 0 rgba(0, 0, 0, 0.1)';
     } else {
-        navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
+        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.15)';
     }
 
     lastScroll = currentScroll;
@@ -37,9 +57,8 @@ window.addEventListener('scroll', () => {
 
 // Active navigation link highlighting
 const sections = document.querySelectorAll('section');
-const navItems = document.querySelectorAll('.nav-link');
 
-window.addEventListener('scroll', () => {
+function highlightNavigation() {
     let current = '';
 
     sections.forEach(section => {
@@ -50,13 +69,15 @@ window.addEventListener('scroll', () => {
         }
     });
 
-    navItems.forEach(link => {
+    navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href').substring(1) === current) {
+        if (link.getAttribute('href') === `#${current}`) {
             link.classList.add('active');
         }
     });
-});
+}
+
+window.addEventListener('scroll', highlightNavigation);
 
 // ==========================================
 // SMOOTH SCROLLING
@@ -65,7 +86,8 @@ window.addEventListener('scroll', () => {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const targetId = this.getAttribute('href');
+        const target = document.querySelector(targetId);
 
         if (target) {
             const navbarHeight = navbar.offsetHeight;
@@ -80,206 +102,232 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ==========================================
-// CONTACT FORM HANDLING
+// CONTACT FORM HANDLING (Quick Inquiry)
 // ==========================================
 
 const contactForm = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
 
-contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-    // Get form data
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        service: document.getElementById('service').value,
-        message: document.getElementById('message').value
-    };
+        // Get form data
+        const formData = {
+            name: document.getElementById('name').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            phone: document.getElementById('phone')?.value.trim() || '',
+            message: document.getElementById('message').value.trim()
+        };
 
-    // Show loading state
-    const submitButton = contactForm.querySelector('button[type="submit"]');
-    const originalButtonText = submitButton.textContent;
-    submitButton.textContent = 'Sending...';
-    submitButton.disabled = true;
+        // Show loading state
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.textContent;
+        submitButton.textContent = 'Sending...';
+        submitButton.disabled = true;
 
-    // Simulate form submission (Replace with actual API call)
-    setTimeout(() => {
-        // Success message
-        formMessage.className = 'form-message success';
-        formMessage.textContent = 'Thank you for your message! I will get back to you within 24 hours.';
-
-        // Reset form
-        contactForm.reset();
-
-        // Reset button
-        submitButton.textContent = originalButtonText;
-        submitButton.disabled = false;
-
-        // Hide message after 5 seconds
+        // Simulate form submission (Replace with actual API call)
         setTimeout(() => {
-            formMessage.style.display = 'none';
-        }, 5000);
+            // Success message
+            formMessage.className = 'form-message success';
+            formMessage.textContent = 'Thank you for contacting Purely Planned Consulting! We will respond within 24 hours.';
 
-        // Log form data (for development - remove in production)
-        console.log('Form submitted:', formData);
+            // Reset form
+            contactForm.reset();
 
-        // TODO: Replace with actual form submission
-        // Example with EmailJS, Formspree, or your backend:
-        /*
-        try {
-            const response = await fetch('YOUR_API_ENDPOINT', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData)
-            });
-
-            if (response.ok) {
-                formMessage.className = 'form-message success';
-                formMessage.textContent = 'Thank you for your message! I will get back to you within 24 hours.';
-                contactForm.reset();
-            } else {
-                throw new Error('Submission failed');
-            }
-        } catch (error) {
-            formMessage.className = 'form-message error';
-            formMessage.textContent = 'Sorry, there was an error sending your message. Please try again or email directly.';
-        } finally {
+            // Reset button
             submitButton.textContent = originalButtonText;
             submitButton.disabled = false;
-        }
-        */
-    }, 1500);
-});
+
+            // Hide message after 7 seconds
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+            }, 7000);
+
+            // Log form data (for development - remove in production)
+            console.log('Quick inquiry submitted:', formData);
+
+            // TODO: Replace with actual form submission
+            // Example with FormSpree:
+            /*
+            try {
+                const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    formMessage.className = 'form-message success';
+                    formMessage.textContent = 'Thank you for contacting Purely Planned Consulting! We will respond within 24 hours.';
+                    contactForm.reset();
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (error) {
+                formMessage.className = 'form-message error';
+                formMessage.textContent = 'Sorry, there was an error sending your message. Please email directly at nicole.mcallister.mgmt@gmail.com';
+            } finally {
+                submitButton.textContent = originalButtonText;
+                submitButton.disabled = false;
+            }
+            */
+        }, 1500);
+    });
+}
 
 // ==========================================
-// SCROLL ANIMATIONS
+// FORM VALIDATION & ENHANCEMENT
+// ==========================================
+
+// Prevent empty form submission
+const formInputs = document.querySelectorAll('input[required], textarea[required]');
+formInputs.forEach(input => {
+    input.addEventListener('invalid', (e) => {
+        e.preventDefault();
+        input.style.borderColor = '#c00';
+    });
+
+    input.addEventListener('input', () => {
+        input.style.borderColor = '';
+    });
+});
+
+// Email validation
+const emailInput = document.getElementById('email');
+if (emailInput) {
+    emailInput.addEventListener('blur', () => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (emailInput.value && !emailRegex.test(emailInput.value)) {
+            emailInput.style.borderColor = '#c00';
+            emailInput.setCustomValidity('Please enter a valid email address');
+        } else {
+            emailInput.style.borderColor = '';
+            emailInput.setCustomValidity('');
+        }
+    });
+}
+
+// Phone formatting (US format)
+const phoneInput = document.getElementById('phone');
+if (phoneInput) {
+    phoneInput.addEventListener('input', (e) => {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length > 10) {
+            value = value.slice(0, 10);
+        }
+        if (value.length >= 6) {
+            value = `(${value.slice(0, 3)}) ${value.slice(3, 6)}-${value.slice(6)}`;
+        } else if (value.length >= 3) {
+            value = `(${value.slice(0, 3)}) ${value.slice(3)}`;
+        }
+        e.target.value = value;
+    });
+}
+
+// ==========================================
+// INTERSECTION OBSERVER FOR ANIMATIONS
 // ==========================================
 
 const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
+    rootMargin: '0px 0px -50px 0px'
 };
 
-const observer = new IntersectionObserver((entries) => {
+const fadeObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in-up');
-            observer.unobserve(entry.target);
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            fadeObserver.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
-// Observe elements for animation
-const animateElements = document.querySelectorAll('.service-card, .pricing-card, .testimonial-card, .about-highlights');
+// Observe elements for fade-in animation
+const animateElements = document.querySelectorAll('.service-card, .pricing-card, .testimonial-card, .highlight-item');
 animateElements.forEach(element => {
-    observer.observe(element);
+    element.style.opacity = '0';
+    element.style.transform = 'translateY(30px)';
+    element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    fadeObserver.observe(element);
+});
+
+// ==========================================
+// PERFORMANCE OPTIMIZATION
+// ==========================================
+
+// Debounce function for scroll events
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Apply debounce to scroll-heavy functions
+const debouncedHighlight = debounce(highlightNavigation, 100);
+window.removeEventListener('scroll', highlightNavigation);
+window.addEventListener('scroll', debouncedHighlight);
+
+// ==========================================
+// ACCESSIBILITY ENHANCEMENTS
+// ==========================================
+
+// Trap focus in mobile menu when open
+if (mobileMenuToggle) {
+    mobileMenuToggle.addEventListener('click', () => {
+        if (navMenu.classList.contains('active')) {
+            // Focus first link when menu opens
+            setTimeout(() => {
+                navLinks[0]?.focus();
+            }, 100);
+        }
+    });
+}
+
+// Escape key closes mobile menu
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active');
+        mobileMenuToggle.classList.remove('active');
+        mobileMenuToggle.focus();
+    }
+});
+
+// ==========================================
+// PAGE LOAD OPTIMIZATIONS
+// ==========================================
+
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('%cPurely Planned Consulting', 'font-size: 20px; font-weight: bold; color: #000;');
+    console.log('%cWhite Glove Lifestyle Management', 'font-size: 12px; color: #4a4a4a;');
+
+    // Add loaded class to body for CSS transitions
+    document.body.classList.add('loaded');
 });
 
 // ==========================================
 // UTILITY FUNCTIONS
 // ==========================================
 
-// Prevent empty form submission
-const formInputs = contactForm.querySelectorAll('input[required], textarea[required]');
-formInputs.forEach(input => {
-    input.addEventListener('invalid', (e) => {
-        e.preventDefault();
-        input.classList.add('error');
-    });
-
-    input.addEventListener('input', () => {
-        input.classList.remove('error');
-    });
-});
-
-// Email validation
-const emailInput = document.getElementById('email');
-emailInput.addEventListener('blur', () => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (emailInput.value && !emailRegex.test(emailInput.value)) {
-        emailInput.classList.add('error');
-    } else {
-        emailInput.classList.remove('error');
-    }
-});
-
-// Phone formatting (basic)
-const phoneInput = document.getElementById('phone');
-phoneInput.addEventListener('input', (e) => {
-    let value = e.target.value.replace(/\D/g, '');
-    if (value.length > 10) {
-        value = value.slice(0, 10);
-    }
-    if (value.length >= 6) {
-        value = `(${value.slice(0, 3)}) ${value.slice(3, 6)}-${value.slice(6)}`;
-    } else if (value.length >= 3) {
-        value = `(${value.slice(0, 3)}) ${value.slice(3)}`;
-    }
-    e.target.value = value;
-});
-
-// ==========================================
-// BACK TO TOP BUTTON (Optional)
-// ==========================================
-
-// Uncomment to add a back-to-top button
-/*
-const backToTopButton = document.createElement('button');
-backToTopButton.innerHTML = '↑';
-backToTopButton.className = 'back-to-top';
-backToTopButton.style.cssText = `
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    opacity: 0;
-    transition: opacity 0.3s, transform 0.3s;
-    z-index: 1000;
-    display: none;
-`;
-
-document.body.appendChild(backToTopButton);
-
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        backToTopButton.style.display = 'block';
-        setTimeout(() => backToTopButton.style.opacity = '1', 10);
-    } else {
-        backToTopButton.style.opacity = '0';
-        setTimeout(() => backToTopButton.style.display = 'none', 300);
-    }
-});
-
-backToTopButton.addEventListener('click', () => {
+// Smooth scroll to top function (can be used for back-to-top button)
+function scrollToTop() {
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
     });
-});
+}
 
-backToTopButton.addEventListener('mouseenter', () => {
-    backToTopButton.style.transform = 'translateY(-5px)';
-});
-
-backToTopButton.addEventListener('mouseleave', () => {
-    backToTopButton.style.transform = 'translateY(0)';
-});
-*/
-
-// ==========================================
-// CONSOLE WELCOME MESSAGE
-// ==========================================
-
-console.log('%cWelcome to Nicole M. Lifestyle Management', 'font-size: 20px; font-weight: bold; color: #2c5f6f;');
-console.log('%cWebsite designed for premium lifestyle services', 'font-size: 12px; color: #c9a876;');
+// Export for use in other scripts if needed
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { scrollToTop };
+}

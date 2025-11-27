@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="New Client Intake Form - Purely Planned Consulting">
+    <title>Client Intake Form | Purely Planned Consulting</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="intake-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">PURELY PLANNED</a>
+            <ul class="nav-menu">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#services" class="nav-link">Services</a></li>
+                <li><a href="index.html#pricing" class="nav-link">Pricing</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                <li><a href="intake.html" class="nav-link nav-cta">Client Intake</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Intake Form Section -->
+    <section class="intake-form-section">
+        <div class="container">
+            <div class="intake-header">
+                <h1>New Client Intake Form</h1>
+                <p class="intake-subtitle">Thank you for choosing Purely Planned Consulting! Please complete this form so we can better understand your needs and provide you with exceptional white glove service.</p>
+                <p class="required-note">* indicates required field</p>
+            </div>
+
+            <form id="intakeForm" class="intake-form" novalidate>
+                <!-- Hidden honeypot field for spam detection -->
+                <input type="text" name="website" id="website" class="honeypot" tabindex="-1" autocomplete="off">
+
+                <!-- Hidden timestamp for bot detection -->
+                <input type="hidden" id="formStartTime" name="formStartTime">
+
+                <!-- Personal Information -->
+                <div class="form-section">
+                    <h2 class="section-title">Personal Information</h2>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required minlength="2">
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required minlength="2">
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="emailAddress">Email Address *</label>
+                            <input type="email" id="emailAddress" name="emailAddress" required>
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneNumber">Phone Number *</label>
+                            <input type="tel" id="phoneNumber" name="phoneNumber" required>
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="address">Street Address *</label>
+                            <input type="text" id="address" name="address" required>
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City *</label>
+                            <input type="text" id="city" name="city" required>
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="state">State *</label>
+                            <input type="text" id="state" name="state" required maxlength="2" placeholder="e.g., CA">
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="zipCode">Zip Code *</label>
+                            <input type="text" id="zipCode" name="zipCode" required pattern="[0-9]{5}">
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="preferredContact">Preferred Contact Method *</label>
+                            <select id="preferredContact" name="preferredContact" required>
+                                <option value="">Select...</option>
+                                <option value="email">Email</option>
+                                <option value="phone">Phone</option>
+                                <option value="text">Text Message</option>
+                            </select>
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="bestTimeToContact">Best Time to Contact</label>
+                            <select id="bestTimeToContact" name="bestTimeToContact">
+                                <option value="">Select...</option>
+                                <option value="morning">Morning (8am-12pm)</option>
+                                <option value="afternoon">Afternoon (12pm-5pm)</option>
+                                <option value="evening">Evening (5pm-8pm)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Information -->
+                <div class="form-section">
+                    <h2 class="section-title">Property Information</h2>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="propertyType">Property Type *</label>
+                            <select id="propertyType" name="propertyType" required>
+                                <option value="">Select...</option>
+                                <option value="single-family">Single Family Home</option>
+                                <option value="high-rise">High-Rise Condominium</option>
+                                <option value="townhouse">Townhouse</option>
+                                <option value="apartment">Apartment</option>
+                                <option value="active-adult">Active Adult Community (50+)</option>
+                                <option value="multiple">Multiple Properties</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="propertySize">Approximate Square Footage</label>
+                            <input type="text" id="propertySize" name="propertySize" placeholder="e.g., 2500">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="multipleProperties">Do you have multiple properties requiring service?</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="multipleProperties" value="yes">
+                                    <span>Yes</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="multipleProperties" value="no" checked>
+                                    <span>No</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row" id="snowBirdSection" style="display: none;">
+                        <div class="form-group full-width">
+                            <label for="snowBirdDetails">Are you a "snow bird" (seasonal resident)?</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="snowBird" value="yes">
+                                    <span>Yes</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="snowBird" value="no" checked>
+                                    <span>No</span>
+                                </label>
+                            </div>
+                            <textarea id="snowBirdDetails" name="snowBirdDetails" rows="3" placeholder="If yes, please describe your seasonal schedule and locations..." class="mt-2"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Request -->
+                <div class="form-section">
+                    <h2 class="section-title">Service Request</h2>
+
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label>Services Needed * (Select all that apply)</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="services" value="home-organization">
+                                    <span>Home Organization</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="services" value="relocation">
+                                    <span>Relocation Management</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="services" value="lifestyle-consulting">
+                                    <span>Lifestyle Consulting</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="services" value="snow-bird">
+                                    <span>Snow Bird Services</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="services" value="high-rise">
+                                    <span>High-Rise Luxury Living Support</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="services" value="downsizing">
+                                    <span>Downsizing/Senior Transition</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="services" value="event-planning">
+                                    <span>Event & Hospitality</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="services" value="concierge">
+                                    <span>Concierge Services</span>
+                                </label>
+                            </div>
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="projectDescription">Project Description * <span class="char-count"><span id="charCount">0</span>/1000</span></label>
+                            <textarea id="projectDescription" name="projectDescription" rows="6" required maxlength="1000" placeholder="Please describe your needs, goals, and any specific challenges you'd like us to address..."></textarea>
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="timeline">Desired Start Timeline *</label>
+                            <select id="timeline" name="timeline" required>
+                                <option value="">Select...</option>
+                                <option value="immediate">Immediate (Within 1 week)</option>
+                                <option value="1-2weeks">1-2 Weeks</option>
+                                <option value="3-4weeks">3-4 Weeks</option>
+                                <option value="1-2months">1-2 Months</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">Estimated Budget Range</label>
+                            <select id="budget" name="budget">
+                                <option value="">Select...</option>
+                                <option value="300-600">$300 - $600 (4-8 hours)</option>
+                                <option value="600-1500">$600 - $1,500 (8-20 hours)</option>
+                                <option value="1500-3000">$1,500 - $3,000 (20-40 hours)</option>
+                                <option value="3000+">$3,000+ (40+ hours or ongoing)</option>
+                                <option value="unsure">Unsure</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="form-section">
+                    <h2 class="section-title">Additional Information</h2>
+
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="hearAboutUs">How did you hear about Purely Planned Consulting?</label>
+                            <select id="hearAboutUs" name="hearAboutUs">
+                                <option value="">Select...</option>
+                                <option value="google">Google Search</option>
+                                <option value="social-media">Social Media</option>
+                                <option value="referral">Referral from Friend/Family</option>
+                                <option value="realtor">Real Estate Professional</option>
+                                <option value="community">Community/Building Management</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="specialRequirements">Special Requirements or Considerations</label>
+                            <textarea id="specialRequirements" name="specialRequirements" rows="4" placeholder="Any special requirements, accessibility needs, pets, security protocols, building access requirements, etc."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Human Verification (AI-Proof CAPTCHA) -->
+                <div class="form-section captcha-section">
+                    <h2 class="section-title">Human Verification</h2>
+                    <p class="captcha-instruction">Please solve this simple math problem to verify you're human:</p>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="captchaAnswer" id="captchaQuestion" class="captcha-question"></label>
+                            <input type="number" id="captchaAnswer" name="captchaAnswer" required placeholder="Enter answer">
+                            <input type="hidden" id="captchaCorrect" name="captchaCorrect">
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" id="refreshCaptcha" class="btn-refresh">Generate New Problem</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agreement & Consent -->
+                <div class="form-section">
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label class="checkbox-label consent-label">
+                                <input type="checkbox" name="consent" id="consent" required>
+                                <span>I consent to Purely Planned Consulting contacting me via my preferred method and understand that my information will be kept confidential. *</span>
+                            </label>
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary btn-submit">Submit Intake Form</button>
+                    <button type="reset" class="btn btn-secondary">Clear Form</button>
+                </div>
+
+                <!-- Form Message -->
+                <div id="intakeFormMessage" class="form-message"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Purely Planned Consulting. All rights reserved.</p>
+                <p class="footer-tagline">White Glove Service | Professional Organization | Lifestyle Management</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="intake.js"></script>
+</body>
+</html>

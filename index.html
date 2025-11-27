@@ -3,24 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Premium lifestyle management, home organization, and consulting services for executives and families">
-    <title>Nicole M. | Lifestyle Management & Home Organization</title>
+    <meta name="description" content="Purely Planned Consulting - Professional lifestyle management, home organization, and white glove concierge services for luxury high-rise residents and active adults 50+">
+    <title>Purely Planned Consulting | Lifestyle Management & Home Organization</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
     <nav id="navbar">
         <div class="container">
-            <div class="nav-brand">Nicole M.</div>
+            <div class="nav-brand">PURELY PLANNED</div>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#services" class="nav-link">Services</a></li>
                 <li><a href="#pricing" class="nav-link">Pricing</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="intake.html" class="nav-link nav-cta">Client Intake</a></li>
             </ul>
             <button class="mobile-menu-toggle" aria-label="Toggle menu">
                 <span></span>
@@ -34,9 +35,13 @@
     <section id="home" class="hero">
         <div class="hero-overlay"></div>
         <div class="container hero-content">
-            <h1 class="hero-title">Simplify Your Life with Expert Care</h1>
-            <p class="hero-subtitle">Premium lifestyle management and home organization services for discerning individuals and families</p>
-            <a href="#contact" class="btn btn-primary">Get Started</a>
+            <h1 class="hero-title">Purely Planned Consulting</h1>
+            <p class="hero-subtitle">White Glove Lifestyle Management & Home Organization</p>
+            <p class="hero-description">Bringing order, efficiency, and peace of mind to luxury residents and active adults</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Schedule Consultation</a>
+                <a href="intake.html" class="btn btn-secondary">New Client Intake</a>
+            </div>
         </div>
     </section>
 
@@ -44,34 +49,46 @@
     <section id="about" class="about">
         <div class="container">
             <div class="section-header">
-                <h2>About Nicole</h2>
+                <h2>About Purely Planned</h2>
                 <div class="section-divider"></div>
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <p class="lead">Transforming chaos into harmony, one space at a time.</p>
-                    <p>With a proven track record of managing complex relocations for Fortune 500 executives including CEOs and Vice Presidents, I bring exceptional organizational expertise and attention to detail to every project.</p>
-                    <p>My approach combines strategic planning with personalized service, ensuring that every aspect of your lifestyle management needs is handled with the utmost professionalism and discretion.</p>
+                    <p class="lead">Professional organization and lifestyle management designed for your busy life.</p>
+                    <p>At Purely Planned Consulting, we understand that time is your most valuable asset. Whether you're coordinating multiple properties, managing a demanding career, or embracing retirement in an active adult community, we provide the white glove service you deserve.</p>
+                    <p>Our expertise includes developing patient experience journeys for medical professionals, coordinating Fortune 500 executive relocations, and creating seamless lifestyle systems for discerning clients who demand excellence.</p>
                     <div class="about-highlights">
                         <div class="highlight-item">
-                            <div class="highlight-icon">✓</div>
+                            <div class="highlight-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
                             <div class="highlight-text">
-                                <h4>Trusted by Executives</h4>
-                                <p>Managing relocations across all experience levels</p>
+                                <h4>White Glove Service</h4>
+                                <p>Proven experience developing premium service experiences</p>
                             </div>
                         </div>
                         <div class="highlight-item">
-                            <div class="highlight-icon">✓</div>
+                            <div class="highlight-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
                             <div class="highlight-text">
                                 <h4>Comprehensive Solutions</h4>
-                                <p>From planning to execution, every detail covered</p>
+                                <p>From seasonal transitions to complete lifestyle management</p>
                             </div>
                         </div>
                         <div class="highlight-item">
-                            <div class="highlight-icon">✓</div>
+                            <div class="highlight-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
                             <div class="highlight-text">
-                                <h4>Personalized Service</h4>
-                                <p>Tailored approaches for your unique needs</p>
+                                <h4>Trusted Expertise</h4>
+                                <p>Tailored approaches for unique lifestyle needs</p>
                             </div>
                         </div>
                     </div>
@@ -84,81 +101,146 @@
     <section id="services" class="services">
         <div class="container">
             <div class="section-header">
-                <h2>Services</h2>
+                <h2>Our Services</h2>
                 <div class="section-divider"></div>
                 <p class="section-description">Comprehensive lifestyle solutions tailored to your needs</p>
             </div>
             <div class="services-grid">
+                <div class="service-card featured">
+                    <div class="service-badge">Specialty Service</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                        </svg>
+                    </div>
+                    <h3>Snow Bird Services</h3>
+                    <p>Seamless seasonal property transitions for residents who split time between multiple homes throughout the year.</p>
+                    <ul class="service-features">
+                        <li>Home opening and closing coordination</li>
+                        <li>Seasonal packing and setup</li>
+                        <li>Mail and package management</li>
+                        <li>Vendor coordination at both locations</li>
+                        <li>Property monitoring and maintenance oversight</li>
+                        <li>Travel preparation and arrival services</li>
+                    </ul>
+                </div>
                 <div class="service-card">
-                    <div class="service-icon">🏠</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                        </svg>
+                    </div>
+                    <h3>High-Rise Luxury Living</h3>
+                    <p>Specialized services for luxury condominium and apartment residents who value convenience and elegance.</p>
+                    <ul class="service-features">
+                        <li>Move-in coordination and setup</li>
+                        <li>Space optimization for urban living</li>
+                        <li>Concierge liaison services</li>
+                        <li>Building amenity coordination</li>
+                        <li>Package and delivery management</li>
+                        <li>Hosting and entertaining support</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </div>
+                    <h3>Active Adult Communities (50+)</h3>
+                    <p>Downsizing, organization, and lifestyle management services designed for vibrant adults 50 and over.</p>
+                    <ul class="service-features">
+                        <li>Downsizing consultation and planning</li>
+                        <li>Estate organization and decluttering</li>
+                        <li>Community transition support</li>
+                        <li>Heirloom distribution coordination</li>
+                        <li>Ongoing home maintenance management</li>
+                        <li>Lifestyle simplification strategies</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                        </svg>
+                    </div>
                     <h3>Home Organization</h3>
-                    <p>Transform your living spaces with professional organization systems that maximize efficiency and create lasting order.</p>
+                    <p>Professional organization systems that transform your space and simplify your daily routines.</p>
                     <ul class="service-features">
-                        <li>Closet and wardrobe organization</li>
-                        <li>Kitchen and pantry systems</li>
+                        <li>Whole-home organization projects</li>
+                        <li>Closet and wardrobe systems</li>
+                        <li>Kitchen and pantry optimization</li>
                         <li>Home office setup</li>
-                        <li>Decluttering and space optimization</li>
                         <li>Storage solutions design</li>
+                        <li>Maintenance systems and training</li>
                     </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">📦</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/>
+                        </svg>
+                    </div>
                     <h3>Relocation Management</h3>
-                    <p>Seamless moving coordination from start to finish, trusted by Fortune 500 executives for stress-free transitions.</p>
+                    <p>Full-service moving coordination from planning through final setup, trusted by executives nationwide.</p>
                     <ul class="service-features">
-                        <li>Complete move coordination</li>
-                        <li>Packing and unpacking services</li>
-                        <li>Vendor management</li>
-                        <li>Timeline planning and execution</li>
-                        <li>New home setup and organization</li>
+                        <li>Pre-move planning and decluttering</li>
+                        <li>Vendor research and coordination</li>
+                        <li>Packing supervision and services</li>
+                        <li>Move day management</li>
+                        <li>Unpacking and home setup</li>
+                        <li>Post-move support and adjustments</li>
                     </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">💼</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
                     <h3>Lifestyle Consulting</h3>
-                    <p>Strategic guidance to optimize your daily routines, systems, and overall quality of life.</p>
+                    <p>Strategic planning to optimize your routines, systems, and overall quality of life.</p>
                     <ul class="service-features">
+                        <li>Household systems assessment</li>
                         <li>Time management strategies</li>
-                        <li>Household systems design</li>
                         <li>Routine optimization</li>
-                        <li>Staff coordination</li>
+                        <li>Staff and vendor coordination</li>
                         <li>Lifestyle efficiency audits</li>
+                        <li>Custom solution development</li>
                     </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">✨</div>
-                    <h3>Event Planning</h3>
-                    <p>Flawless execution of personal and professional events with meticulous attention to every detail.</p>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+                        </svg>
+                    </div>
+                    <h3>Event & Hospitality</h3>
+                    <p>Flawless execution of gatherings and events with meticulous attention to detail.</p>
                     <ul class="service-features">
-                        <li>Private dinner parties</li>
-                        <li>Corporate events at home</li>
-                        <li>Holiday celebrations</li>
-                        <li>Vendor coordination</li>
-                        <li>Setup and breakdown</li>
+                        <li>Dinner parties and gatherings</li>
+                        <li>Holiday celebration coordination</li>
+                        <li>Vendor booking and management</li>
+                        <li>Setup and breakdown services</li>
+                        <li>Guest coordination</li>
+                        <li>Post-event cleanup</li>
                     </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🎁</div>
-                    <h3>Personal Shopping</h3>
-                    <p>Curated shopping services for home, wardrobe, and gifts that reflect your style and save your time.</p>
-                    <ul class="service-features">
-                        <li>Home furnishing selection</li>
-                        <li>Wardrobe consultation</li>
-                        <li>Gift procurement</li>
-                        <li>Seasonal decor</li>
-                        <li>Grocery and essentials</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📋</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                        </svg>
+                    </div>
                     <h3>Concierge Services</h3>
-                    <p>Handle life's endless tasks with dedicated support for errands, appointments, and special requests.</p>
+                    <p>Comprehensive errand and task management to reclaim your valuable time.</p>
                     <ul class="service-features">
-                        <li>Errand running</li>
+                        <li>Personal errands and shopping</li>
                         <li>Appointment scheduling</li>
-                        <li>Vendor research and booking</li>
+                        <li>Vendor research and coordination</li>
                         <li>Travel arrangements</li>
                         <li>Special project management</li>
+                        <li>Personal assistance</li>
                     </ul>
                 </div>
             </div>
@@ -169,90 +251,74 @@
     <section id="pricing" class="pricing">
         <div class="container">
             <div class="section-header">
-                <h2>Pricing</h2>
+                <h2>Transparent Pricing</h2>
                 <div class="section-divider"></div>
-                <p class="section-description">Flexible options to suit your lifestyle needs</p>
+                <p class="section-description">Professional services with clear, straightforward rates</p>
             </div>
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <h3>Consultation</h3>
+                        <h3>Hourly Rate</h3>
                         <div class="price">
-                            <span class="price-amount">$200</span>
-                            <span class="price-period">initial session</span>
-                        </div>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li>90-minute in-home assessment</li>
-                            <li>Personalized action plan</li>
-                            <li>Resource recommendations</li>
-                            <li>Priority scheduling</li>
-                        </ul>
-                    </div>
-                    <a href="#contact" class="btn btn-secondary">Schedule Consultation</a>
-                </div>
-                <div class="pricing-card featured">
-                    <div class="featured-badge">Most Popular</div>
-                    <div class="pricing-header">
-                        <h3>Hourly Services</h3>
-                        <div class="price">
-                            <span class="price-amount">$85-$150</span>
+                            <span class="price-amount">$75</span>
                             <span class="price-period">per hour</span>
                         </div>
                     </div>
                     <div class="pricing-features">
                         <ul>
-                            <li>Flexible scheduling</li>
-                            <li>All service categories</li>
+                            <li>All services included</li>
                             <li>4-hour minimum per session</li>
-                            <li>Rate based on project complexity</li>
-                            <li>Volume discounts available</li>
+                            <li>Flexible scheduling</li>
+                            <li>Professional expertise</li>
+                            <li>Detailed progress reports</li>
                         </ul>
                     </div>
-                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                    <a href="intake.html" class="btn btn-primary">Get Started</a>
                 </div>
-                <div class="pricing-card">
+                <div class="pricing-card featured">
+                    <div class="featured-badge">Best Value</div>
                     <div class="pricing-header">
                         <h3>Monthly Retainer</h3>
                         <div class="price">
                             <span class="price-amount">Custom</span>
-                            <span class="price-period">pricing</span>
+                            <span class="price-period">pricing available</span>
                         </div>
                     </div>
                     <div class="pricing-features">
                         <ul>
                             <li>20+ hours per month</li>
-                            <li>Priority response time</li>
+                            <li>Priority scheduling</li>
+                            <li>Preferred rates</li>
                             <li>Dedicated support</li>
                             <li>Comprehensive lifestyle management</li>
                             <li>Best value for ongoing needs</li>
                         </ul>
                     </div>
-                    <a href="#contact" class="btn btn-secondary">Discuss Options</a>
+                    <a href="#contact" class="btn btn-primary">Discuss Options</a>
                 </div>
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <h3>Relocation Package</h3>
+                        <h3>Project-Based</h3>
                         <div class="price">
-                            <span class="price-amount">Starting at $5,000</span>
-                            <span class="price-period">per move</span>
+                            <span class="price-amount">Custom</span>
+                            <span class="price-period">quote provided</span>
                         </div>
                     </div>
                     <div class="pricing-features">
                         <ul>
-                            <li>Complete move management</li>
-                            <li>Pre-move planning & organizing</li>
-                            <li>Vendor coordination</li>
-                            <li>Packing & unpacking supervision</li>
-                            <li>Full home setup at destination</li>
+                            <li>Relocation packages</li>
+                            <li>Whole-home organization</li>
+                            <li>Snow bird seasonal transitions</li>
+                            <li>Downsizing projects</li>
+                            <li>Comprehensive proposals</li>
+                            <li>Transparent cost breakdown</li>
                         </ul>
                     </div>
                     <a href="#contact" class="btn btn-secondary">Request Quote</a>
                 </div>
             </div>
             <div class="pricing-note">
-                <p>All pricing is customized based on project scope and complexity. Travel fees may apply for locations outside the primary service area. Corporate and executive packages available upon request.</p>
+                <p><strong>4-hour minimum per session.</strong> All pricing is customized based on project scope and complexity. Travel fees may apply for locations outside the primary service area. Corporate and group discounts available upon request.</p>
             </div>
         </div>
     </section>
@@ -261,24 +327,24 @@
     <section id="testimonials" class="testimonials">
         <div class="container">
             <div class="section-header">
-                <h2>Client Testimonials</h2>
+                <h2>What Clients Say</h2>
                 <div class="section-divider"></div>
             </div>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"Nicole managed our entire cross-country relocation with incredible professionalism. Everything was seamlessly coordinated, and we walked into a fully organized home on day one."</p>
-                    <p class="testimonial-author">— Fortune 500 Executive</p>
+                    <p class="testimonial-text">"Nicole's white glove service is unmatched. She coordinated our entire snow bird transition seamlessly - both our northern and southern homes were perfectly organized and ready when we arrived."</p>
+                    <p class="testimonial-author">— Seasonal Resident</p>
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"Working with Nicole has been life-changing. She transformed our chaotic home into an organized, functional space. Her systems actually work!"</p>
-                    <p class="testimonial-author">— Busy Family of Four</p>
+                    <p class="testimonial-text">"Moving into our luxury high-rise was stress-free thanks to Purely Planned. Nicole handled every detail, from coordinating with building management to setting up our entire home. Exceptional service."</p>
+                    <p class="testimonial-author">— Downtown Resident</p>
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"The attention to detail and level of care Nicole provides is exceptional. She anticipates needs before they arise and handles everything with grace."</p>
-                    <p class="testimonial-author">— Private Client</p>
+                    <p class="testimonial-text">"The professionalism and attention to detail Nicole provides is extraordinary. She helped us downsize to our 55+ community with care and efficiency. Highly recommend!"</p>
+                    <p class="testimonial-author">— Active Adult Community Resident</p>
                 </div>
             </div>
         </div>
@@ -290,10 +356,12 @@
             <div class="section-header">
                 <h2>Get In Touch</h2>
                 <div class="section-divider"></div>
-                <p class="section-description">Ready to simplify your life? Let's discuss how I can help.</p>
+                <p class="section-description">Ready to simplify your life? Let's discuss how we can help.</p>
             </div>
             <div class="contact-content">
                 <div class="contact-form-wrapper">
+                    <h3>Quick Inquiry</h3>
+                    <p class="form-intro">For general questions, use this form. New clients should complete our <a href="intake.html">comprehensive intake form</a>.</p>
                     <form id="contactForm" class="contact-form">
                         <div class="form-group">
                             <label for="name">Name *</label>
@@ -308,19 +376,6 @@
                             <input type="tel" id="phone" name="phone">
                         </div>
                         <div class="form-group">
-                            <label for="service">Service Interested In</label>
-                            <select id="service" name="service">
-                                <option value="">Select a service</option>
-                                <option value="home-organization">Home Organization</option>
-                                <option value="relocation">Relocation Management</option>
-                                <option value="consulting">Lifestyle Consulting</option>
-                                <option value="event-planning">Event Planning</option>
-                                <option value="personal-shopping">Personal Shopping</option>
-                                <option value="concierge">Concierge Services</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
                             <label for="message">Message *</label>
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
@@ -331,22 +386,26 @@
                 <div class="contact-info">
                     <div class="contact-info-item">
                         <h4>Email</h4>
-                        <p><a href="mailto:nicole@lifestylemanagement.com">nicole@lifestylemanagement.com</a></p>
+                        <p><a href="mailto:nicole.mcallister.mgmt@gmail.com">nicole.mcallister.mgmt@gmail.com</a></p>
                     </div>
                     <div class="contact-info-item">
-                        <h4>Phone</h4>
-                        <p><a href="tel:+15555551234">(555) 555-1234</a></p>
+                        <h4>New Clients</h4>
+                        <p><a href="intake.html" class="cta-link">Complete Intake Form →</a></p>
+                        <p class="small-text">Comprehensive form ensures we understand your needs</p>
                     </div>
                     <div class="contact-info-item">
-                        <h4>Service Area</h4>
-                        <p>Primary: [Your City/Region]<br>
-                        Available for travel nationwide for relocation projects</p>
+                        <h4>Service Specialties</h4>
+                        <p>• Luxury High-Rise Condominiums<br>
+                        • Active Adult Communities (50+)<br>
+                        • Snow Bird Seasonal Transitions<br>
+                        • Executive Relocations</p>
                     </div>
                     <div class="contact-info-item">
-                        <h4>Hours</h4>
-                        <p>Monday - Friday: 9am - 6pm<br>
-                        Weekend appointments available<br>
-                        Emergency services by arrangement</p>
+                        <h4>Professional Standards</h4>
+                        <p>Licensed & Insured<br>
+                        Confidential & Discreet<br>
+                        Background Verified<br>
+                        Bonded for Your Protection</p>
                     </div>
                 </div>
             </div>
@@ -357,8 +416,8 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2024 Nicole M. Lifestyle Management. All rights reserved.</p>
-                <p class="footer-tagline">Bringing order and elegance to everyday life</p>
+                <p>&copy; 2024 Purely Planned Consulting. All rights reserved.</p>
+                <p class="footer-tagline">White Glove Service | Professional Organization | Lifestyle Management</p>
             </div>
         </div>
     </footer>
