@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Service Contracts - Purely Planned Consulting">
+    <title>Service Contracts | Purely Planned Consulting</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="intake-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .contracts-page {
+            padding: 120px 0 80px;
+            background-color: var(--color-off-white);
+            min-height: 100vh;
+        }
+
+        .contracts-header {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 50px;
+        }
+
+        .contracts-header h1 {
+            color: var(--color-black);
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .legal-disclaimer {
+            background-color: #fff3cd;
+            border: 2px solid #856404;
+            padding: 25px;
+            margin-bottom: 40px;
+            border-radius: 4px;
+        }
+
+        .legal-disclaimer h3 {
+            color: #856404;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .legal-disclaimer p {
+            color: #856404;
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .contract-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid var(--color-very-light-gray);
+        }
+
+        .tab-button {
+            flex: 1;
+            min-width: 180px;
+            padding: 15px 20px;
+            background-color: var(--color-off-white);
+            border: 2px solid var(--color-very-light-gray);
+            color: var(--color-dark-gray);
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .tab-button:hover {
+            border-color: var(--color-black);
+            background-color: white;
+        }
+
+        .tab-button.active {
+            background-color: var(--color-black);
+            color: white;
+            border-color: var(--color-black);
+        }
+
+        .contract-container {
+            background-color: white;
+            padding: 50px;
+            border: 1px solid var(--color-very-light-gray);
+            margin-bottom: 30px;
+        }
+
+        .contract-content {
+            display: none;
+        }
+
+        .contract-content.active {
+            display: block;
+        }
+
+        .contract-title {
+            font-size: 2rem;
+            color: var(--color-black);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+
+        .contract-subtitle {
+            text-align: center;
+            color: var(--color-medium-gray);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .contract-section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--color-very-light-gray);
+        }
+
+        .contract-section:last-child {
+            border-bottom: none;
+        }
+
+        .section-heading {
+            font-size: 1.3rem;
+            color: var(--color-black);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .contract-field {
+            margin-bottom: 20px;
+        }
+
+        .contract-field label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--color-dark-gray);
+            font-size: 0.95rem;
+        }
+
+        .contract-field input[type="text"],
+        .contract-field input[type="email"],
+        .contract-field input[type="tel"],
+        .contract-field input[type="date"],
+        .contract-field textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--color-very-light-gray);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: var(--transition-fast);
+        }
+
+        .contract-field input:focus,
+        .contract-field textarea:focus {
+            outline: none;
+            border-color: var(--color-black);
+        }
+
+        .contract-field textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .checkbox-group-contract {
+            margin: 10px 0;
+        }
+
+        .checkbox-group-contract label {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            cursor: pointer;
+            font-weight: normal;
+        }
+
+        .checkbox-group-contract input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .signature-section {
+            margin-top: 40px;
+            padding: 30px;
+            background-color: var(--color-off-white);
+            border: 2px solid var(--color-black);
+        }
+
+        .signature-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .signature-box {
+            padding: 20px;
+            background-color: white;
+            border: 2px solid var(--color-very-light-gray);
+        }
+
+        .signature-box h4 {
+            color: var(--color-black);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 1rem;
+        }
+
+        .contract-actions {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+            padding: 30px;
+            background-color: var(--color-off-white);
+            border-top: 2px solid var(--color-very-light-gray);
+        }
+
+        .contract-actions .btn {
+            min-width: 200px;
+        }
+
+        .info-box {
+            background-color: #e7f3ff;
+            border-left: 4px solid #0066cc;
+            padding: 20px;
+            margin: 30px 0;
+        }
+
+        .info-box h4 {
+            color: #0066cc;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            color: var(--color-medium-gray);
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .contracts-page {
+                padding: 100px 0 60px;
+            }
+
+            .contracts-header h1 {
+                font-size: 2rem;
+            }
+
+            .contract-container {
+                padding: 30px 20px;
+            }
+
+            .tab-button {
+                min-width: 100%;
+            }
+
+            .signature-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .contract-actions {
+                flex-direction: column;
+            }
+
+            .contract-actions .btn {
+                width: 100%;
+            }
+        }
+
+        @media print {
+            .contract-tabs,
+            .contract-actions,
+            nav,
+            footer,
+            .legal-disclaimer,
+            .info-box {
+                display: none !important;
+            }
+
+            .contract-container {
+                border: none;
+                padding: 20px;
+            }
+
+            .contracts-page {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">PURELY PLANNED</a>
+            <ul class="nav-menu">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#services" class="nav-link">Services</a></li>
+                <li><a href="index.html#pricing" class="nav-link">Pricing</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                <li><a href="contracts.html" class="nav-link">Contracts</a></li>
+                <li><a href="intake.html" class="nav-link nav-cta">Client Intake</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Contracts Page -->
+    <section class="contracts-page">
+        <div class="container">
+            <div class="contracts-header">
+                <h1>Service Contracts</h1>
+                <p class="intake-subtitle">Review our professional service agreements. These contracts protect both you and Purely Planned Consulting, ensuring clear expectations and professional standards.</p>
+            </div>
+
+            <!-- Legal Disclaimer -->
+            <div class="legal-disclaimer">
+                <h3>⚠️ IMPORTANT LEGAL DISCLAIMER</h3>
+                <p><strong>These are DRAFT templates for informational purposes only.</strong></p>
+                <p>These contracts must be reviewed and approved by a licensed attorney before use. Purely Planned Consulting is not providing legal advice. Laws vary by state and jurisdiction. Do not sign or use these agreements without proper legal counsel.</p>
+                <p><strong>For actual service contracts, please contact us directly at nicole.mcallister.mgmt@gmail.com</strong></p>
+            </div>
+
+            <!-- Contract Tabs -->
+            <div class="contract-tabs">
+                <button class="tab-button active" data-contract="hourly">Hourly Services</button>
+                <button class="tab-button" data-contract="retainer">Monthly Retainer</button>
+                <button class="tab-button" data-contract="relocation">Relocation</button>
+                <button class="tab-button" data-contract="snowbird">Snow Bird</button>
+                <button class="tab-button" data-contract="master">Master Agreement</button>
+                <button class="tab-button" data-contract="guide">Contract Guide</button>
+            </div>
+
+            <!-- Contract Container -->
+            <div class="contract-container">
+
+                <!-- Hourly Services Contract -->
+                <div id="hourly-contract" class="contract-content active">
+                    <h2 class="contract-title">Hourly Services Agreement</h2>
+                    <p class="contract-subtitle">Professional lifestyle management services on an hourly basis</p>
+
+                    <div class="info-box">
+                        <h4>Best For:</h4>
+                        <p>One-time projects, trial services, flexible needs, event support, personal shopping, or specific organization projects.</p>
+                    </div>
+
+                    <!-- Party Information -->
+                    <div class="contract-section">
+                        <h3 class="section-heading">1. Party Information</h3>
+
+                        <div class="contract-field">
+                            <label>Agreement Date:</label>
+                            <input type="date" id="hourly-date" class="form-input">
+                        </div>
+
+                        <h4 style="margin: 25px 0 15px; color: var(--color-black);">CLIENT INFORMATION</h4>
+
+                        <div class="contract-field">
+                            <label>Full Name:</label>
+                            <input type="text" id="hourly-client-name" placeholder="Enter your full name">
+                        </div>
+
+                        <div class="contract-field">
+                            <label>Address:</label>
+                            <input type="text" id="hourly-client-address" placeholder="Street address">
+                        </div>
+
+                        <div class="contract-field">
+                            <label>City, State, ZIP:</label>
+                            <input type="text" id="hourly-client-city" placeholder="City, State ZIP">
+                        </div>
+
+                        <div class="contract-field">
+                            <label>Phone:</label>
+                            <input type="tel" id="hourly-client-phone" placeholder="(555) 555-5555">
+                        </div>
+
+                        <div class="contract-field">
+                            <label>Email:</label>
+                            <input type="email" id="hourly-client-email" placeholder="your@email.com">
+                        </div>
+                    </div>
+
+                    <!-- Scope of Services -->
+                    <div class="contract-section">
+                        <h3 class="section-heading">2. Scope of Services</h3>
+                        <p style="margin-bottom: 15px;">Select the services you need:</p>
+
+                        <div class="checkbox-group-contract">
+                            <label><input type="checkbox" name="hourly-services" value="home-organization"> Home Organization</label>
+                            <label><input type="checkbox" name="hourly-services" value="lifestyle-consulting"> Lifestyle Consulting</label>
+                            <label><input type="checkbox" name="hourly-services" value="event-planning"> Event Planning & Hospitality Support</label>
+                            <label><input type="checkbox" name="hourly-services" value="personal-shopping"> Personal Shopping & Errands</label>
+                            <label><input type="checkbox" name="hourly-services" value="concierge"> Concierge Services</label>
+                        </div>
+
+                        <div class="contract-field">
+                            <label>Project Description:</label>
+                            <textarea id="hourly-project-description" placeholder="Please describe your specific needs and goals..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Pricing -->
+                    <div class="contract-section">
+                        <h3 class="section-heading">3. Pricing & Payment</h3>
+                        <p><strong>Hourly Rate:</strong> $75.00 per hour</p>
+                        <p><strong>Minimum Session:</strong> 4 hours ($300.00 minimum)</p>
+                        <p><strong>Billing:</strong> Time billed in 15-minute increments after 4-hour minimum</p>
+
+                        <div class="contract-field" style="margin-top: 20px;">
+                            <label>Payment Method (select one):</label>
+                            <div class="checkbox-group-contract">
+                                <label><input type="checkbox" name="hourly-payment" value="check"> Check</label>
+                                <label><input type="checkbox" name="hourly-payment" value="venmo"> Venmo/Zelle</label>
+                                <label><input type="checkbox" name="hourly-payment" value="credit"> Credit Card (3% processing fee)</label>
+                                <label><input type="checkbox" name="hourly-payment" value="bank"> Bank Transfer</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Key Terms -->
+                    <div class="contract-section">
+                        <h3 class="section-heading">4. Key Terms</h3>
+                        <ul style="line-height: 2; color: var(--color-medium-gray);">
+                            <li><strong>Cancellation Policy:</strong> 48+ hours notice = no charge | 24-48 hours = 50% fee | Under 24 hours = 100% fee</li>
+                            <li><strong>Late Payment:</strong> 1.5% per month (18% annually) after 15 days</li>
+                            <li><strong>Confidentiality:</strong> All client information kept strictly confidential</li>
+                            <li><strong>Insurance:</strong> Consultant maintains general liability insurance</li>
+                            <li><strong>Limitation of Liability:</strong> Capped at total amount paid in prior 30 days</li>
+                        </ul>
+                    </div>
+
+                    <!-- Signature Section -->
+                    <div class="signature-section">
+                        <h3 class="section-heading" style="text-align: center; margin-bottom: 30px;">Signatures</h3>
+                        <div class="signature-row">
+                            <div class="signature-box">
+                                <h4>CLIENT</h4>
+                                <div class="contract-field">
+                                    <label>Print Name:</label>
+                                    <input type="text" id="hourly-client-sig-name" placeholder="Your full name">
+                                </div>
+                                <div class="contract-field">
+                                    <label>Date:</label>
+                                    <input type="date" id="hourly-client-sig-date">
+                                </div>
+                                <p style="font-size: 0.85rem; color: var(--color-light-gray); margin-top: 15px;">Signature: ____________________</p>
+                            </div>
+                            <div class="signature-box">
+                                <h4>PURELY PLANNED CONSULTING</h4>
+                                <div class="contract-field">
+                                    <label>Print Name:</label>
+                                    <input type="text" value="Nicole M." readonly style="background-color: var(--color-off-white);">
+                                </div>
+                                <div class="contract-field">
+                                    <label>Date:</label>
+                                    <input type="date" id="hourly-consultant-sig-date">
+                                </div>
+                                <p style="font-size: 0.85rem; color: var(--color-light-gray); margin-top: 15px;">Signature: ____________________</p>
+                            </div>
+                        </div>
+                        <p style="text-align: center; margin-top: 20px; font-size: 0.9rem; color: var(--color-medium-gray);">By signing, both parties acknowledge understanding and agreement to all terms and conditions.</p>
+                    </div>
+                </div>
+
+                <!-- Additional contract sections will be loaded by JavaScript -->
+                <div id="retainer-contract" class="contract-content">
+                    <h2 class="contract-title">Monthly Retainer Agreement</h2>
+                    <p class="contract-subtitle">Ongoing lifestyle management services with priority benefits</p>
+
+                    <div class="info-box">
+                        <h4>Best For:</h4>
+                        <p>Clients needing 20+ hours per month, recurring services, priority scheduling, and dedicated support. This is the most cost-effective option for ongoing needs.</p>
+                    </div>
+
+                    <p style="text-align: center; padding: 60px; color: var(--color-medium-gray);">
+                        <strong>Monthly Retainer Agreement</strong><br><br>
+                        For the complete retainer agreement with customizable hour packages, pricing tiers, and comprehensive terms,<br>
+                        please contact us at <a href="mailto:nicole.mcallister.mgmt@gmail.com">nicole.mcallister.mgmt@gmail.com</a>
+                    </p>
+
+                    <div class="contract-section">
+                        <h3 class="section-heading">Key Features</h3>
+                        <ul style="line-height: 2; color: var(--color-medium-gray);">
+                            <li><strong>Discounted Rates:</strong> $67.50-$75/hour depending on commitment level</li>
+                            <li><strong>Priority Scheduling:</strong> Guaranteed availability within preferred time windows</li>
+                            <li><strong>Dedicated Support:</strong> Direct line for urgent requests, 4-hour response time</li>
+                            <li><strong>Hour Packages:</strong> 20, 30, or 40 hours per month options</li>
+                            <li><strong>Rollover Options:</strong> Unused hours may roll to next month</li>
+                            <li><strong>All Services Included:</strong> Full access to all service categories</li>
+                            <li><strong>Monthly Reports:</strong> Detailed usage and activity summaries</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="relocation-contract" class="contract-content">
+                    <h2 class="contract-title">Relocation Services Agreement</h2>
+                    <p class="contract-subtitle">Complete moving project management from planning through setup</p>
+
+                    <div class="info-box">
+                        <h4>Best For:</h4>
+                        <p>Local or long-distance moves, executive relocations, downsizing projects. Comprehensive coordination from pre-move planning through final setup.</p>
+                    </div>
+
+                    <p style="text-align: center; padding: 60px; color: var(--color-medium-gray);">
+                        <strong>Relocation Services Agreement</strong><br><br>
+                        For the complete relocation agreement with multi-phase timelines, vendor coordination protocols, and comprehensive scope options,<br>
+                        please contact us at <a href="mailto:nicole.mcallister.mgmt@gmail.com">nicole.mcallister.mgmt@gmail.com</a>
+                    </p>
+
+                    <div class="contract-section">
+                        <h3 class="section-heading">Service Phases</h3>
+                        <ul style="line-height: 2; color: var(--color-medium-gray);">
+                            <li><strong>Phase 1 - Pre-Move Planning:</strong> Assessment, decluttering, timeline creation, vendor selection</li>
+                            <li><strong>Phase 2 - Packing:</strong> Coordination, supervision, inventory system, special items handling</li>
+                            <li><strong>Phase 3 - Move Day:</strong> On-site supervision, mover coordination, problem-solving</li>
+                            <li><strong>Phase 4 - Unpacking & Setup:</strong> Organization, placement, home setup, final walkthrough</li>
+                        </ul>
+                    </div>
+
+                    <div class="contract-section">
+                        <h3 class="section-heading">Pricing Options</h3>
+                        <ul style="line-height: 2; color: var(--color-medium-gray);">
+                            <li><strong>Flat Fee Package:</strong> Starting at $2,000 for local moves (based on scope)</li>
+                            <li><strong>Hourly Rate:</strong> $75/hour (estimated hours provided upfront)</li>
+                            <li><strong>Hybrid:</strong> Fixed fee for planning + hourly for execution</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="snowbird-contract" class="contract-content">
+                    <h2 class="contract-title">Snow Bird Seasonal Services</h2>
+                    <p class="contract-subtitle">Property management for seasonal residents</p>
+
+                    <div class="info-box">
+                        <h4>Best For:</h4>
+                        <p>Clients who split time between two properties (3-6 months each). Perfect for snowbirds heading to Florida, Arizona, or California for winter/summer seasons.</p>
+                    </div>
+
+                    <p style="text-align: center; padding: 60px; color: var(--color-medium-gray);">
+                        <strong>Snow Bird Seasonal Services Agreement</strong><br><br>
+                        For the complete snow bird agreement with property opening/closing protocols, emergency response procedures, and seasonal package pricing,<br>
+                        please contact us at <a href="mailto:nicole.mcallister.mgmt@gmail.com">nicole.mcallister.mgmt@gmail.com</a>
+                    </p>
+
+                    <div class="contract-section">
+                        <h3 class="section-heading">Included Services</h3>
+
+                        <h4 style="margin: 20px 0 10px; color: var(--color-black);">Property Closing (Before Departure)</h4>
+                        <ul style="line-height: 2; color: var(--color-medium-gray);">
+                            <li>Deep cleaning coordination</li>
+                            <li>Pack and store seasonal items</li>
+                            <li>Adjust utilities, water, HVAC</li>
+                            <li>Security system setup</li>
+                            <li>Mail hold/forwarding</li>
+                            <li>Final walkthrough</li>
+                        </ul>
+
+                        <h4 style="margin: 20px 0 10px; color: var(--color-black);">Property Opening (Before Arrival)</h4>
+                        <ul style="line-height: 2; color: var(--color-medium-gray);">
+                            <li>Pre-arrival deep cleaning</li>
+                            <li>Turn on utilities 48 hours ahead</li>
+                            <li>Test all systems</li>
+                            <li>Grocery shopping and restocking</li>
+                            <li>Unpack seasonal items</li>
+                            <li>Welcome home preparation</li>
+                        </ul>
+
+                        <h4 style="margin: 20px 0 10px; color: var(--color-black);">During Absence</h4>
+                        <ul style="line-height: 2; color: var(--color-medium-gray);">
+                            <li>Weekly, bi-weekly, or monthly property checks</li>
+                            <li>Visual inspection for issues</li>
+                            <li>Run water and flush toilets</li>
+                            <li>Mail and package collection</li>
+                            <li>Vendor coordination (landscaping, pool, snow removal)</li>
+                            <li>Emergency response 24/7</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="master-contract" class="contract-content">
+                    <h2 class="contract-title">Master Services Agreement & NDA</h2>
+                    <p class="contract-subtitle">Comprehensive confidentiality and service terms</p>
+
+                    <div class="info-box">
+                        <h4>Best For:</h4>
+                        <p>Executive clients, high-profile individuals, medical professionals, and anyone requiring strict confidentiality. Strongest privacy protections available.</p>
+                    </div>
+
+                    <p style="text-align: center; padding: 60px; color: var(--color-medium-gray);">
+                        <strong>Master Services Agreement & Non-Disclosure Agreement</strong><br><br>
+                        For the complete master agreement with comprehensive confidentiality provisions, professional standards, and umbrella terms for all services,<br>
+                        please contact us at <a href="mailto:nicole.mcallister.mgmt@gmail.com">nicole.mcallister.mgmt@gmail.com</a>
+                    </p>
+
+                    <div class="contract-section">
+                        <h3 class="section-heading">Confidentiality Protections</h3>
+                        <ul style="line-height: 2; color: var(--color-medium-gray);">
+                            <li><strong>Complete Privacy:</strong> Never disclose client identity, name, address, or details</li>
+                            <li><strong>No Photography:</strong> Absolutely no photos without explicit written permission</li>
+                            <li><strong>No Social Media:</strong> Never mention, tag, or reference clients online</li>
+                            <li><strong>Indefinite Duration:</strong> Confidentiality survives termination forever</li>
+                            <li><strong>Property Security:</strong> All access codes, keys kept completely secure</li>
+                            <li><strong>Third-Party Restrictions:</strong> Minimal information shared with vendors</li>
+                            <li><strong>Professional Discretion:</strong> Enhanced security for executive clients</li>
+                        </ul>
+                    </div>
+
+                    <div class="contract-section">
+                        <h3 class="section-heading">Who Should Use This Agreement</h3>
+                        <ul style="line-height: 2; color: var(--color-medium-gray);">
+                            <li>Fortune 500 executives and C-suite professionals</li>
+                            <li>High-profile individuals requiring discretion</li>
+                            <li>Medical professionals and healthcare executives</li>
+                            <li>Clients with significant privacy concerns</li>
+                            <li>Anyone requiring umbrella agreement for multiple service types</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="guide-contract" class="contract-content">
+                    <h2 class="contract-title">Contract Selection Guide</h2>
+                    <p class="contract-subtitle">Which contract is right for you?</p>
+
+                    <div class="contract-section">
+                        <h3 class="section-heading">Quick Decision Tree</h3>
+
+                        <div style="background-color: var(--color-off-white); padding: 30px; margin: 20px 0;">
+                            <h4 style="color: var(--color-black); margin-bottom: 15px;">Is this a one-time project?</h4>
+                            <ul style="line-height: 2; color: var(--color-medium-gray);">
+                                <li><strong>Moving/Relocation?</strong> → Use <strong>Relocation Services Agreement</strong></li>
+                                <li><strong>Other single project?</strong> → Use <strong>Hourly Services Agreement</strong></li>
+                            </ul>
+                        </div>
+
+                        <div style="background-color: var(--color-off-white); padding: 30px; margin: 20px 0;">
+                            <h4 style="color: var(--color-black); margin-bottom: 15px;">Is this ongoing service?</h4>
+                            <ul style="line-height: 2; color: var(--color-medium-gray);">
+                                <li><strong>20+ hours per month?</strong> → Use <strong>Monthly Retainer Agreement</strong></li>
+                                <li><strong>Seasonal/two properties?</strong> → Use <strong>Snow Bird Services Agreement</strong></li>
+                                <li><strong>Less than 20 hours/month?</strong> → Use <strong>Hourly Services Agreement</strong></li>
+                            </ul>
+                        </div>
+
+                        <div style="background-color: var(--color-off-white); padding: 30px; margin: 20px 0;">
+                            <h4 style="color: var(--color-black); margin-bottom: 15px;">Extra confidentiality needed?</h4>
+                            <ul style="line-height: 2; color: var(--color-medium-gray);">
+                                <li><strong>Executive or high-profile?</strong> → Use <strong>Master Services Agreement</strong></li>
+                                <li><strong>Standard privacy sufficient?</strong> → Use service-specific agreement</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="contract-section">
+                        <h3 class="section-heading">What's Included in Each Contract</h3>
+
+                        <h4 style="margin: 20px 0 10px; color: var(--color-black);">1. Hourly Services Agreement</h4>
+                        <p style="color: var(--color-medium-gray); margin-bottom: 15px;">✓ $75/hour | 4-hour minimum | Flexible services | Cancellation policy | Confidentiality</p>
+
+                        <h4 style="margin: 20px 0 10px; color: var(--color-black);">2. Monthly Retainer Agreement</h4>
+                        <p style="color: var(--color-medium-gray); margin-bottom: 15px;">✓ Discounted rates | Priority scheduling | Hour packages | Rollover options | Monthly reports</p>
+
+                        <h4 style="margin: 20px 0 10px; color: var(--color-black);">3. Relocation Services</h4>
+                        <p style="color: var(--color-medium-gray); margin-bottom: 15px;">✓ Multi-phase timeline | Vendor coordination | Packing supervision | Move day support | Setup</p>
+
+                        <h4 style="margin: 20px 0 10px; color: var(--color-black);">4. Snow Bird Services</h4>
+                        <p style="color: var(--color-medium-gray); margin-bottom: 15px;">✓ Property opening/closing | Regular checks | Emergency response | Vendor oversight | Travel prep</p>
+
+                        <h4 style="margin: 20px 0 10px; color: var(--color-black);">5. Master Agreement & NDA</h4>
+                        <p style="color: var(--color-medium-gray); margin-bottom: 15px;">✓ Comprehensive NDA | Executive privacy | No photography | Indefinite confidentiality</p>
+                    </div>
+
+                    <div class="contract-section">
+                        <h3 class="section-heading">Next Steps</h3>
+                        <ol style="line-height: 2.5; color: var(--color-medium-gray);">
+                            <li>Review the appropriate contract for your needs</li>
+                            <li>Fill in your information in the fillable fields (optional)</li>
+                            <li>Print or download for your records</li>
+                            <li>Contact us at <a href="mailto:nicole.mcallister.mgmt@gmail.com">nicole.mcallister.mgmt@gmail.com</a> to discuss</li>
+                            <li>Schedule initial consultation to finalize terms</li>
+                            <li>Sign attorney-reviewed final agreement before services begin</li>
+                        </ol>
+                    </div>
+
+                    <div class="info-box" style="background-color: #fff3cd; border-color: #856404;">
+                        <h4 style="color: #856404;">Remember:</h4>
+                        <p style="color: #856404;">These are informational drafts only. All contracts must be reviewed by a licensed attorney before signing. Contact us directly for attorney-approved service agreements.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Contract Actions -->
+            <div class="contract-actions">
+                <button class="btn btn-primary" onclick="window.print()">Print Contract</button>
+                <button class="btn btn-secondary" onclick="clearAllFields()">Clear All Fields</button>
+                <a href="mailto:nicole.mcallister.mgmt@gmail.com?subject=Service Contract Inquiry" class="btn btn-secondary">Email for Actual Contract</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Purely Planned Consulting. All rights reserved.</p>
+                <p class="footer-tagline">White Glove Service | Professional Organization | Lifestyle Management</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Contract Tab Switching
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const contractContents = document.querySelectorAll('.contract-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                contractContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                // Show corresponding contract
+                const contractType = button.getAttribute('data-contract');
+                const contractElement = document.getElementById(`${contractType}-contract`);
+                if (contractElement) {
+                    contractElement.classList.add('active');
+                }
+
+                // Scroll to top of contract
+                document.querySelector('.contract-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Clear all fillable fields
+        function clearAllFields() {
+            if (confirm('Are you sure you want to clear all filled information?')) {
+                const inputs = document.querySelectorAll('.contract-field input, .contract-field textarea');
+                inputs.forEach(input => {
+                    if (!input.hasAttribute('readonly')) {
+                        input.value = '';
+                    }
+                });
+
+                const checkboxes = document.querySelectorAll('.checkbox-group-contract input[type="checkbox"]');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+
+                alert('All fields have been cleared.');
+            }
+        }
+
+        // Auto-fill today's date for signature dates
+        window.addEventListener('DOMContentLoaded', () => {
+            const today = new Date().toISOString().split('T')[0];
+            const dateInputs = document.querySelectorAll('input[type="date"]');
+            dateInputs.forEach(input => {
+                if (!input.value && input.id.includes('sig-date')) {
+                    input.value = today;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
