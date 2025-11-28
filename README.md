@@ -22,16 +22,64 @@ A modern, responsive website showcasing premium lifestyle management services wi
 2. Open `index.html` in your web browser
 3. No build process required - pure HTML, CSS, and JavaScript
 
+## 🌐 Deployment Options
+
+### Option 1: GitHub Pages (Recommended - FREE!)
+
+**Easiest and completely free hosting with automatic SSL.**
+
+1. Go to your repository Settings → Pages
+2. Select your branch and save
+3. Your site is live at `https://morbidsteve.github.io/nicole/` in 2 minutes!
+
+📖 **[Complete GitHub Pages Guide](GITHUB-PAGES.md)** - Includes custom domain setup
+
+**Features:**
+- ✅ FREE hosting forever
+- ✅ FREE SSL certificate (HTTPS)
+- ✅ Global CDN for fast loading
+- ✅ Automatic deployments on push
+- ✅ 99.9% uptime
+- ✅ Custom domain support
+
+**Perfect for:** Static websites like this one. Best choice for most users!
+
+### Option 2: VPS with Docker
+
+**For advanced users who need full control.**
+
+```bash
+# One-command deployment on any VPS
+docker-compose up -d
+```
+
+📖 **[Complete Docker Deployment Guide](DEPLOYMENT.md)** - VPS setup with SSL
+
+**Features:**
+- Full server control
+- Can add backend features later
+- Self-hosted solution
+- Cost: $5-6/month
+
+**Perfect for:** Users who need server-side functionality or prefer self-hosting.
+
 ### File Structure
 
 ```
 /
 ├── index.html              # Main homepage
 ├── intake.html             # Client intake form
+├── contracts.html          # Interactive contracts viewer
 ├── styles.css              # Main stylesheet (black/white/gray theme)
 ├── intake-styles.css       # Intake form specific styles
 ├── script.js               # Main JavaScript
 ├── intake.js               # Intake form logic with spam filtering
+├── contracts/              # Service agreement templates (5 contracts)
+├── Dockerfile              # Docker container configuration
+├── docker-compose.yml      # Easy Docker deployment
+├── nginx.conf              # Web server configuration
+├── GITHUB-PAGES.md         # GitHub Pages deployment guide
+├── DEPLOYMENT.md           # VPS/Docker deployment guide
 └── README.md               # This file
 ```
 
