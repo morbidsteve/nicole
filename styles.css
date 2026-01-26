@@ -82,11 +82,13 @@ p {
 }
 
 .lead {
-    font-size: 1.4rem;
-    font-weight: 400;
-    color: var(--color-dark-gray);
+    font-size: 1.3rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--color-medium-gray);
     margin-bottom: 1.5rem;
-    line-height: 1.6;
+    line-height: 1.7;
+    letter-spacing: 0.01em;
 }
 
 /* ==========================================
@@ -360,10 +362,13 @@ p {
 }
 
 .section-description {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: var(--color-medium-gray);
     max-width: 700px;
     margin: 0 auto;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.01em;
 }
 
 /* ==========================================
@@ -656,9 +661,10 @@ p {
 .pricing-note {
     max-width: 900px;
     margin: 50px auto 0;
-    padding: 30px;
-    background-color: var(--color-off-white);
-    border-left: 4px solid var(--color-black);
+    padding: 30px 35px;
+    background-color: var(--color-ivory);
+    border-left: 2px solid var(--color-charcoal);
+    border-right: 2px solid var(--color-charcoal);
 }
 
 .pricing-note p {
@@ -666,6 +672,13 @@ p {
     font-size: 0.95rem;
     color: var(--color-medium-gray);
     line-height: 1.8;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.pricing-note p strong {
+    font-weight: 500;
+    font-style: normal;
 }
 
 /* ==========================================
