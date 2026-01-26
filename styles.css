@@ -386,9 +386,11 @@ p {
 }
 
 .about-text p {
-    font-size: 1.1rem;
-    line-height: 1.8;
+    font-size: 1.05rem;
+    line-height: 1.85;
     margin-bottom: 1.5rem;
+    font-weight: 300;
+    color: var(--color-medium-gray);
 }
 
 .about-highlights {
