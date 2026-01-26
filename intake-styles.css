@@ -39,9 +39,10 @@
 .intake-form {
     max-width: 900px;
     margin: 0 auto;
-    background-color: white;
+    background-color: var(--color-white);
     padding: 50px;
     border: 1px solid var(--color-very-light-gray);
+    border-radius: 12px;
 }
 
 /* Form Sections */
@@ -104,11 +105,11 @@
     width: 100%;
     padding: 15px;
     border: 2px solid var(--color-very-light-gray);
-    border-radius: 0;
+    border-radius: 6px;
     font-family: var(--font-body);
     font-size: 1rem;
     transition: var(--transition-fast);
-    background-color: white;
+    background-color: var(--color-white);
 }
 
 .form-group input:focus,
@@ -171,6 +172,7 @@
     color: var(--color-medium-gray);
     padding: 12px;
     border: 1px solid var(--color-very-light-gray);
+    border-radius: 6px;
     transition: var(--transition-fast);
 }
 
@@ -197,6 +199,7 @@
     background-color: var(--color-off-white);
     padding: 20px;
     border: 2px solid var(--color-very-light-gray);
+    border-radius: 8px;
 }
 
 .consent-label:hover {
@@ -208,6 +211,7 @@
     background-color: var(--color-off-white);
     padding: 30px;
     border: 2px solid var(--color-black);
+    border-radius: 8px;
 }
 
 .captcha-instruction {
@@ -228,6 +232,7 @@
     color: white;
     border: none;
     padding: 15px 25px;
+    border-radius: 6px;
     cursor: pointer;
     font-family: var(--font-heading);
     font-size: 0.85rem;
@@ -263,6 +268,7 @@
     font-weight: 500;
     font-size: 1rem;
     border: 2px solid;
+    border-radius: 8px;
 }
 
 .form-message.success {
