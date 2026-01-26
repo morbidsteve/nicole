@@ -387,10 +387,16 @@ p {
 
 .about-text p {
     font-size: 1.05rem;
-    line-height: 1.85;
+    line-height: 1.9;
     margin-bottom: 1.5rem;
-    font-weight: 300;
+    font-weight: 400;
     color: var(--color-medium-gray);
+    font-family: 'Lora', Georgia, serif;
+}
+
+.about-text p.lead {
+    font-family: 'Lora', Georgia, serif;
+    font-style: italic;
 }
 
 .about-highlights {
