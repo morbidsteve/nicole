@@ -11,14 +11,14 @@
 
 :root {
     /* Warm & Welcoming Color Scheme */
-    --color-black: #3d3833;
-    --color-dark-gray: #4a4540;
-    --color-medium-gray: #6b635a;
-    --color-light-gray: #a39b91;
+    --color-black: #2d2d2d;
+    --color-dark-gray: #3a3a3a;
+    --color-medium-gray: #5a5a5a;
+    --color-light-gray: #8a8a8a;
     --color-very-light-gray: #e8e4df;
     --color-off-white: #f7f5f2;
     --color-white: #fdfcfa;
-    --color-accent: #5c554d;
+    --color-accent: #4a4a4a;
 
     /* Typography */
     --font-heading: 'Montserrat', sans-serif;
@@ -241,7 +241,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #5c554d 0%, #3d3833 100%);
+    background: linear-gradient(135deg, #5a5652 0%, #3d3a38 100%);
     text-align: center;
     padding-top: 80px;
 }
@@ -670,7 +670,7 @@ p {
 
 .testimonials {
     padding: var(--section-padding);
-    background-color: #5c554d;
+    background-color: #4a4847;
 }
 
 .testimonials .section-header h2 {
@@ -877,7 +877,7 @@ p {
    ========================================== */
 
 .footer {
-    background-color: #3d3833;
+    background-color: #3a3838;
     color: var(--color-off-white);
     padding: 50px 0;
     text-align: center;
