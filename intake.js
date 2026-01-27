@@ -408,7 +408,7 @@ intakeForm.addEventListener('submit', async function(e) {
 
     // Simulate submission (replace with actual email service)
     setTimeout(() => {
-        console.log('LEGITIMATE SUBMISSION - Ready to send to:', 'nicole.mcallister.mgmt@gmail.com');
+        console.log('LEGITIMATE SUBMISSION - Ready to send to:', 'nicole.McAllister.mgmt@gmail.com');
         console.log('Submission Data:', submissionData);
 
         // Success message
@@ -420,7 +420,7 @@ intakeForm.addEventListener('submit', async function(e) {
             1. You will receive a confirmation email at ${submissionData.email}<br>
             2. Nicole will review your needs and prepare a customized proposal<br>
             3. We'll schedule an initial consultation to discuss your project<br><br>
-            If you have any urgent questions, please email <a href="mailto:nicole.mcallister.mgmt@gmail.com">nicole.mcallister.mgmt@gmail.com</a>
+            If you have any urgent questions, please email <a href="mailto:nicole.McAllister.mgmt@gmail.com">nicole.McAllister.mgmt@gmail.com</a>
         `;
 
         // Reset form

@@ -16,7 +16,7 @@
 **Service Provider ("Consultant")**
 Purely Planned Consulting
 Nicole M.
-Email: nicole.mcallister.mgmt@gmail.com
+Email: nicole.McAllister.mgmt@gmail.com
 [Your Phone Number]
 [Your Address]
 

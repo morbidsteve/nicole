@@ -168,7 +168,7 @@ if (contactForm) {
                 }
             } catch (error) {
                 formMessage.className = 'form-message error';
-                formMessage.textContent = 'Sorry, there was an error sending your message. Please email directly at nicole.mcallister.mgmt@gmail.com';
+                formMessage.textContent = 'Sorry, there was an error sending your message. Please email directly at nicole.McAllister.mgmt@gmail.com';
             } finally {
                 submitButton.textContent = originalButtonText;
                 submitButton.disabled = false;

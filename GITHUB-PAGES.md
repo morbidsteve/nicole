@@ -137,7 +137,7 @@ GitHub Pages is static only. For the contact form and intake form to work, you n
 Steps:
 1. Go to https://formspree.io
 2. Sign up (free plan: 50 submissions/month)
-3. Create a form for nicole.mcallister.mgmt@gmail.com
+3. Create a form for nicole.McAllister.mgmt@gmail.com
 4. Get your form ID
 5. Update `action` attribute in both forms
 

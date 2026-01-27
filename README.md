@@ -369,7 +369,7 @@ Track these metrics monthly:
 ### Update Your Information
 
 Edit `index.html`:
-- **Line 389**: Update email to `nicole.mcallister.mgmt@gmail.com` (already done)
+- **Line 389**: Update email to `nicole.McAllister.mgmt@gmail.com` (already done)
 - Add your phone number when ready
 - Update service area/location
 - Add real client testimonials (with permission)
