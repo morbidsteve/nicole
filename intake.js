@@ -257,14 +257,14 @@ function isSpamSubmission(formData) {
 // ==========================================
 
 const intakeForm = document.getElementById('intakeForm');
-const formMessage = document.getElementById('intakeFormMessage');
+const intakeFormMessage = document.getElementById('intakeFormMessage');
 
 intakeForm.addEventListener('submit', async function(e) {
     e.preventDefault();
 
     // Clear previous messages
-    formMessage.style.display = 'none';
-    formMessage.className = 'form-message';
+    intakeFormMessage.style.display = 'none';
+    intakeFormMessage.className = 'form-message';
 
     // Validate required fields
     let isValid = true;
@@ -287,18 +287,18 @@ intakeForm.addEventListener('submit', async function(e) {
     // Validate at least one service is selected
     const servicesChecked = document.querySelectorAll('input[name="services"]:checked');
     if (servicesChecked.length === 0) {
-        formMessage.className = 'form-message error';
-        formMessage.textContent = 'Please select at least one service.';
-        formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        intakeFormMessage.className = 'form-message error';
+        intakeFormMessage.textContent = 'Please select at least one service.';
+        intakeFormMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
     }
 
     // Validate consent checkbox
     const consent = document.getElementById('consent');
     if (!consent.checked) {
-        formMessage.className = 'form-message error';
-        formMessage.textContent = 'Please agree to our contact consent to proceed.';
-        formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        intakeFormMessage.className = 'form-message error';
+        intakeFormMessage.textContent = 'Please agree to our contact consent to proceed.';
+        intakeFormMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
     }
 
@@ -336,9 +336,9 @@ intakeForm.addEventListener('submit', async function(e) {
     }
 
     if (!isValid) {
-        formMessage.className = 'form-message error';
-        formMessage.textContent = 'Please correct the errors above and try again.';
-        formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        intakeFormMessage.className = 'form-message error';
+        intakeFormMessage.textContent = 'Please correct the errors above and try again.';
+        intakeFormMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
     }
 
@@ -351,9 +351,9 @@ intakeForm.addEventListener('submit', async function(e) {
         console.warn('Spam detected:', spamCheck.reasons);
 
         // Don't send to email, but show a generic message to the user
-        formMessage.className = 'form-message warning';
-        formMessage.textContent = 'Thank you for your submission. We will review it and get back to you if it meets our requirements.';
-        formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        intakeFormMessage.className = 'form-message warning';
+        intakeFormMessage.textContent = 'Thank you for your submission. We will review it and get back to you if it meets our requirements.';
+        intakeFormMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
         // Log spam attempt (for development)
         console.log('Spam submission blocked:', {
@@ -412,8 +412,8 @@ intakeForm.addEventListener('submit', async function(e) {
         console.log('Submission Data:', submissionData);
 
         // Success message
-        formMessage.className = 'form-message success';
-        formMessage.innerHTML = `
+        intakeFormMessage.className = 'form-message success';
+        intakeFormMessage.innerHTML = `
             <strong>Thank you for submitting your intake form!</strong><br>
             We have received your information and will contact you within 24-48 hours via your preferred method.<br><br>
             <strong>Next Steps:</strong><br>
@@ -429,7 +429,7 @@ intakeForm.addEventListener('submit', async function(e) {
         generateCaptcha();
 
         // Scroll to success message
-        formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        intakeFormMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
         // Remove loading state
         submitButton.classList.remove('loading');
@@ -449,15 +449,15 @@ intakeForm.addEventListener('submit', async function(e) {
 
             if (response.ok) {
                 // Success message
-                formMessage.className = 'form-message success';
-                formMessage.innerHTML = `Success message here...`;
+                intakeFormMessage.className = 'form-message success';
+                intakeFormMessage.innerHTML = `Success message here...`;
                 intakeForm.reset();
             } else {
                 throw new Error('Submission failed');
             }
         } catch (error) {
-            formMessage.className = 'form-message error';
-            formMessage.textContent = 'There was an error submitting your form. Please try again or email directly.';
+            intakeFormMessage.className = 'form-message error';
+            intakeFormMessage.textContent = 'There was an error submitting your form. Please try again or email directly.';
         } finally {
             submitButton.classList.remove('loading');
             submitButton.disabled = false;
@@ -488,7 +488,7 @@ intakeForm.addEventListener('reset', () => {
     generateCaptcha();
 
     // Hide form message
-    formMessage.style.display = 'none';
+    intakeFormMessage.style.display = 'none';
 });
 
 // ==========================================
