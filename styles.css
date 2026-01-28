@@ -305,8 +305,17 @@ p {
 .hero-description {
     font-size: 1.1rem;
     color: var(--color-very-light-gray);
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
     font-weight: 300;
+}
+
+.hero-service-area {
+    font-size: 0.95rem;
+    color: var(--color-taupe);
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
 }
 
 .hero-buttons {

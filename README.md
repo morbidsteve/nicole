@@ -10,7 +10,7 @@ A modern, responsive website showcasing premium lifestyle management services wi
 - **Fully Responsive**: Optimized for desktop, tablet, and mobile devices
 - **Single Page Application**: Smooth scrolling navigation with modern animations
 - **Comprehensive Services Showcase**: 8 specialized service offerings
-- **Transparent Pricing**: $75/hour with 4-hour minimum clearly displayed
+- **Transparent Pricing**: $75/hour with 3-hour minimum clearly displayed
 - **Advanced Client Intake Form**: Multi-section form with AI-proof CAPTCHA and spam filtering
 - **Professional Branding**: Clean, sophisticated design reflecting white glove service standards
 
@@ -96,7 +96,7 @@ Purely Planned Consulting provides white glove lifestyle management and professi
 ### Pricing
 
 - **Hourly Rate**: $75/hour
-- **Minimum**: 4-hour minimum per session ($300 minimum)
+- **Minimum**: 3-hour minimum per session ($225 minimum)
 - **Monthly Retainers**: Custom pricing for 20+ hours/month
 - **Project-Based**: Custom quotes for relocations, whole-home organization, and seasonal transitions
 
@@ -235,7 +235,7 @@ Connect to your own server endpoint for complete control over email delivery and
 ### Revenue Streams
 
 #### Core Services
-1. **Hourly Services** ($75/hour, 4-hour minimum): $300-$600 per session
+1. **Hourly Services** ($75/hour, 3-hour minimum): $225-$600 per session
 2. **Monthly Retainers** (20-40 hours): $1,500-$3,000/month recurring revenue
 3. **Relocation Packages**: $2,000-$8,000 per project
 4. **Snow Bird Services**: $1,000-$3,000 per seasonal transition

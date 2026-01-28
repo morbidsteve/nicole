@@ -16,7 +16,7 @@
 **Service Provider ("Consultant")**
 Purely Planned Consulting
 Nicole M.
-Email: nicole.McAllister.mgmt@gmail.com
+Email: nicole@purelyplannedconsulting.com
 [Your Phone Number]
 [Your Address]
 
@@ -66,7 +66,7 @@ This Master Services Agreement establishes the general terms and conditions gove
 ## 2. GENERAL PRICING TERMS
 
 **2.1 Standard Rates**:
-- Hourly Services: $75.00 per hour (4-hour minimum per session)
+- Hourly Services: $75.00 per hour (3-hour minimum per session)
 - Monthly Retainer: Custom pricing based on hours and services
 - Project-Based: Quoted per project scope
 

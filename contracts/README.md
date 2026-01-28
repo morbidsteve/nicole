@@ -38,7 +38,7 @@ This directory contains comprehensive, professional contract templates for all s
 
 **Key Terms**:
 - $75/hour rate
-- 4-hour minimum per session
+- 3-hour minimum per session
 - Services billed in 15-minute increments
 - Payment due within 7-15 days
 
@@ -280,8 +280,8 @@ Ask your attorney to review:
 ## 💰 Pricing Guidance
 
 ### Hourly Services
-- **Standard**: $75/hour, 4-hour minimum
-- **Per session**: $300 minimum
+- **Standard**: $75/hour, 3-hour minimum
+- **Per session**: $225 minimum
 - **Travel**: 50% rate for distances over 15 miles
 
 ### Monthly Retainers (Discounted Rates)

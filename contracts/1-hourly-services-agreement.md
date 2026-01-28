@@ -16,7 +16,7 @@
 **Service Provider ("Consultant")**
 Purely Planned Consulting
 Nicole M.
-Email: nicole.McAllister.mgmt@gmail.com
+Email: nicole@purelyplannedconsulting.com
 [Your Phone Number]
 [Your Address]
 
@@ -57,9 +57,9 @@ _____________________________________________________________________________
 
 **2.1 Hourly Rate**: $75.00 per hour
 
-**2.2 Minimum Session**: 4 hours per session ($300.00 minimum)
+**2.2 Minimum Session**: 3 hours per session ($225.00 minimum)
 
-**2.3 Billing Increments**: Time will be billed in 15-minute increments after the 4-hour minimum.
+**2.3 Billing Increments**: Time will be billed in 15-minute increments after the 3-hour minimum.
 
 **2.4 Travel Time**: For service locations more than 15 miles from Consultant's base, travel time may be billed at 50% of the hourly rate. Client will be notified in advance if travel charges apply.
 
@@ -92,8 +92,8 @@ All expenses will be documented with receipts and itemized on invoices.
 
 **3.2 Cancellation by Client**:
 - **More than 48 hours notice**: No charge
-- **24-48 hours notice**: 50% of minimum session fee ($150)
-- **Less than 24 hours notice**: 100% of minimum session fee ($300)
+- **24-48 hours notice**: 50% of minimum session fee ($112.50)
+- **Less than 24 hours notice**: 100% of minimum session fee ($225)
 - **No show**: 100% of scheduled session charges
 
 **3.3 Cancellation by Consultant**: If Consultant must cancel a scheduled session, Client will receive priority rescheduling and no cancellation fees.
